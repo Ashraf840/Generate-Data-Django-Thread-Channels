@@ -1,0 +1,17 @@
+HTML Part
+
+{% for studs in students %}
+                    counter = forloop.counter
+                    <tr>
+                        <th scope="col">{{ counter }}</th>
+                        <th scope="col">{{ studs.student_name }}</th>
+                        <th scope="col">{{ studs.age }}</th>
+                        <th scope="col">{{ studs.student_email }}</th>
+                        <th scope="col">{{ studs.address }}</th>
+                    </tr>
+                {% endfor %}
+
+
+
+js part
+            var counter = "{{ key|escapejs }}";

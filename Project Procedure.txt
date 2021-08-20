@@ -1,0 +1,10 @@
+Project Procedure
+
+** Create & activate a python-virtual-environment
+** Vanilla "Websocket Consumer" project. Establishing the basic Plain Websocket.
+** Create a "Notification App in Django channels".
+
+01. Similar to the previous project ("01 - Basic Consumer Boilerplate"), 
+    create a boilerplate-django-consumer.
+
+02. Create a model-class named ("Notification") inside the "home/models.py" file.
