@@ -3,7 +3,7 @@ from channels.layers import get_channel_layer
 # from asgiref.sync import async_to_sync
 # import json
 # import time
-from .thread import CreateStudentsThread
+
 from .models import *
 
 
@@ -30,23 +30,3 @@ async def index(request):
     return render(request, 'home/index.html')
 
 
-
-# API-method [GET] ****************************************************************************************************** [ A P I ]
-from django.http import JsonResponse
-
-"""
-Whenever this api-view/ api-method gets called, it will
-[
-    "creating dummy-data-row in the DB",
-    "also simultaneously sends that each data to the channel-consumer-group immedietly"
-]
-"""
-async def generate_student_data(request):
-    total = request.GET.get('total')    # get the value of "GET" dict-variable ("total") from the browser-url
-    # since the number is fetchd from the browser-url, it's a string-type number, so it's need to be converted into int.
-    CreateStudentsThread(int(total)).start()
-    
-    return JsonResponse({ 
-        'trigger': 'To populate data using this page\'s url',
-        'status': 200 
-    })
